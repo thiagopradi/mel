@@ -21,6 +21,9 @@ func (s *ServerStorage) ParseCommand(command string) (response string) {
     return "OK"
   } else if arr[0] == "GET" {
     return s.Dict[arr[1]]
+  } else if arr[0] == "DEL" {
+    delete(s.Dict, arr[1])
+    return "OK"
   }
 
   return "command failed"
